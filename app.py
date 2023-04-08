@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-from flask import Flask, request, render_template
-from flask_debugtoolbar import DebugToolbarExtension
-
-from surveys import satisfaction_survey
-app = Flask(__name__)
-
-app.config['SECRET_KEY'] = "amanda1"
-debug = DebugToolbarExtension(app)
-
-responses = []
-
-@app.route('/')
-def make_homepage():
-    title = satisfaction_survey.title
-    instructions = satisfaction_survey.instructions
-    return render_template('home.html', title = title, instructions=instructions)
-=======
 from flask import Flask, render_template, session, redirect, request, flash
 from flask_debugtoolbar import DebugToolbarExtension
 from surveys import satisfaction_survey as survey
@@ -39,7 +21,7 @@ def start_page():
 @app.route('/start_survey', methods=['POST'])
 def start_survey():
     session[response_list] = []
-    return render_template('/questions/0')
+    return redirect(f'/questions/{0}')
 
 
 @app.route('/questions/<int:question_number>')
@@ -79,5 +61,3 @@ def handle_answer():
 @app.route('/finished')
 def finished_survey():  
     return render_template('finished.html')
-  
->>>>>>> 57eeedc (re-written code)

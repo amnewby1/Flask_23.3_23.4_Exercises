@@ -1,11 +1,5 @@
-<<<<<<< HEAD
 {% extends 'base.html' %}
-{% block title %} Home Page {% endblock %}
-{% block content %}
-<form action=""></form>
-=======
-{% extends 'base.html' %}
-{% block title %} {{title}} {% endblock %}
+{% block title %} Questions{% endblock %}
 
 {% block content %}
 <p>{{question.question}}</p>
@@ -17,5 +11,4 @@
     {% endfor %}
     <button>Next Question</button>
 </form>
->>>>>>> 57eeedc (re-written code)
 {% endblock %}
